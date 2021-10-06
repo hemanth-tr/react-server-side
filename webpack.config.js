@@ -3,7 +3,7 @@ const path = require('path');
 const clientConfig = {
 	name: 'web',
 	target: 'web',
-	entry: '.src/index.js',
+	entry: './src/index.js',
 	output: {
 		path: path.resolve(__dirname, 'public/js'),
 		filename: 'bundle.js',

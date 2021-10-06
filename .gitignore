@@ -1,2 +1,6 @@
 # ignore files and folder that can be generated on build
 node_modules
+public
+
+# generated files as it generated on webpack build
+/server*
