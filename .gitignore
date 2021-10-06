@@ -1,0 +1,2 @@
+# ignore files and folder that can be generated on build
+node_modules
