@@ -1,14 +1,20 @@
 const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+const miniCssExtractPlugin = new MiniCssExtractPlugin({
+	filename: 'css/bootstrap.css'
+});
 
 const clientConfig = {
 	name: 'web',
 	target: 'web',
 	entry: './src/index.js',
 	output: {
-		path: path.resolve(__dirname, 'public/js'),
-		filename: 'bundle.js',
+		path: path.resolve(__dirname, 'public'),
+		filename: 'js/bundle.js',
 		clean: true
 	},
+	plugins: [miniCssExtractPlugin],
 	module: {
 		rules: [
 			{
@@ -20,6 +26,10 @@ const clientConfig = {
 						presets: ['@babel/env', '@babel/react']
 					}
 				}
+			},
+			{
+				test: /\.s?css$/,
+				use: [MiniCssExtractPlugin.loader, 'css-loader']
 			}
 		]
 	}
@@ -45,6 +55,10 @@ const serverConfig = {
 						presets: ['@babel/env', '@babel/react']
 					}
 				}
+			},
+			{
+				test: /\.s?css$/,
+				use: 'css-loader'
 			}
 		]
 	}

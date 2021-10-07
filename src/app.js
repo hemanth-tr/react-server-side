@@ -1,14 +1,15 @@
 import React from "react";
+import Navigation from "./components/nav";
 
 export default class App extends React.Component {
 
 	constructor(props) {
-		console.log(props);
+		super(props);
 	}
 
 	render() {
 		return (
-			<div>React server side</div>
+			<Navigation />
 		);
 	}
 }
