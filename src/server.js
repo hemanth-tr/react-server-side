@@ -5,23 +5,18 @@ import App from './app';
 
 const app = express();
 
-app.use(express.static('public', { maxAge: 604800 }));
+app.use(express.static('public', { maxAge: 5000 }));
+app.use(express.static('static', { maxAge: 60000 }));
 
 app.get('*', (req, res) => {
-	// console.log(`url: ${req.url}, verb: ${req.method}`);
 
-	if (req.url == '/favicon.ico') {
-		res.send();
-		return;
-	}
-
-	const name = "Hemanth"
 	const markup = RDS.renderToStaticMarkup(<App url={req.url} />);
 
 	const html = `
 		<html>
 			<head>
 				<title>React SS</title>
+				<link rel="icon" href="favicon.ico" type="image/x-icon" />
 				<link rel="stylesheet" href="/css/bootstrap.css" />
 			</head>
 			<body>
@@ -32,7 +27,7 @@ app.get('*', (req, res) => {
 		</html>
 	`;
 
-	res.setHeader("Cache-Control", "max-age=604800");
+	res.setHeader("Cache-Control", "max-age=5000");
 	res.end(html);
 })
 
