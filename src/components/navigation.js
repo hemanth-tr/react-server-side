@@ -1,5 +1,6 @@
 import React from "react";
-import { Nav, Navbar, Container, NavDropdown } from "react-bootstrap";
+import { Nav, Navbar, Container } from "react-bootstrap";
+import CurrentDate from "./date";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default class Navigation extends React.Component {
@@ -17,6 +18,7 @@ export default class Navigation extends React.Component {
 							<Nav.Link href="#home">Home</Nav.Link>
 						</Nav>
 					</Navbar.Collapse>
+					<CurrentDate />
 				</Container>
 			</Navbar>
 		);

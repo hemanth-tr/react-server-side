@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, ListGroup } from 'react-bootstrap';
 
-export default class List extends React.Component {
+export default class StockList extends React.Component {
 
 	constructor(props) {
 		super(props);
@@ -12,13 +12,11 @@ export default class List extends React.Component {
 		const items = this.props.list;
 		const listItems = items.map((item) => {
 			return <ListGroup.Item>{item}</ListGroup.Item>
-		})
-
-		console.log(listItems);
+		});
 
 		return (
 			<Container>
-				<ListGroup className='col-4'>
+				<ListGroup className='col-4 mt-4'>
 					{listItems}
 				</ListGroup>
 			</Container>

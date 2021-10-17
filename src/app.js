@@ -1,12 +1,11 @@
 import React from "react";
 import Navigation from "./components/navigation";
-import List from './components/navigation-list';
+import StockList from './components/navigation-list';
 
 export default class App extends React.Component {
 
 	constructor(props) {
 		super(props);
-		console.log(this.props);
 	}
 
 	render() {
@@ -14,7 +13,7 @@ export default class App extends React.Component {
 		return (
 			<>
 				<Navigation />
-				<List list={list} />
+				<StockList list={list} />
 			</>
 		);
 	}
